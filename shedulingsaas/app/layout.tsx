@@ -2,6 +2,7 @@ import { type Metadata } from 'next'
 import { ClerkProvider } from '@clerk/nextjs'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
+import Starfield from 'react-starfield';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -28,8 +29,18 @@ export default function RootLayout({
       <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           {children}
+
+          <div className="App">
+            <Starfield
+              starCount={1000}
+              starColor={[255 , 255, 255]}
+              speedFactor={0.05}
+              backgroundColor="black"
+            />
+          </div>
         </body>
       </html>
     </ClerkProvider>
+    
   )
 }
